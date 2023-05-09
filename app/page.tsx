@@ -62,7 +62,7 @@ export default function IndexPage() {
           </p>
           <div>
             <Card>
-              <div className="h-[236px] w-[420px]">
+              <div className="w-[25rem]">
                 <Image src="/cyberpunk1.jpg" width={420} height={200} alt="cyberpunk" className="rounded-t-lg"/>
               </div>
               <Separator />
