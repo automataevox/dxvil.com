@@ -39,7 +39,7 @@ export default function IndexPage() {
                         </Avatar>
                     }
                     <div className="grid gap-1">
-                        <CardTitle>Jaroslav Maša</CardTitle>
+                        <CardTitle className="text-xl">Jaroslav Maša</CardTitle>
                         <CardDescription>
                             Frontend developer, musician and entrepreneur.
                         </CardDescription>
@@ -106,7 +106,7 @@ export default function IndexPage() {
                                     {/*<Input type="email" id="email" autoComplete='email' placeholder="Email from..." />*/}
                                     <Input type="text" id="subject" placeholder="Subject" />
                                 </div>
-                                <Textarea id="message" className="h-40" placeholder="Type your message here." />
+                                <Textarea id="message" className="h-40 resize-none" placeholder="Type your message here." />
                                 <Button type="submit" className="w-24" onClick={() => (handleEmailSend())}>Send</Button>
                             </CardContent>
                         </Card>
