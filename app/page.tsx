@@ -18,20 +18,12 @@ export default function IndexPage() {
       </div>
       <div className="flex gap-4">
         <Link
-          href={siteConfig.links.docs}
+          href={"https://ui.shadcn.com/docs"}
           target="_blank"
           rel="noreferrer"
           className={buttonVariants({ size: "lg" })}
         >
           Documentation
-        </Link>
-        <Link
-          target="_blank"
-          rel="noreferrer"
-          href={siteConfig.links.github}
-          className={buttonVariants({ variant: "outline", size: "lg" })}
-        >
-          GitHub
         </Link>
       </div>
     </section>
