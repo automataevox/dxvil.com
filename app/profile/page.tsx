@@ -1,17 +1,15 @@
 'use client'
 /* eslint-disable react/no-unescaped-entities */
-import { FaDiscord, FaGithub, FaGithubAlt, FaGithubSquare, FaInstagram, FaQuestion, FaQuestionCircle, FaReddit, FaRedditAlien, FaRegQuestionCircle, FaSpotify, FaSquarespace, FaSteam, FaSteamSquare, FaSteamSymbol, FaTwitch, FaTwitter } from 'react-icons/fa';
+import { FaDiscord, FaGithubAlt, FaInstagram, FaQuestion, FaSpotify, FaSteamSymbol, FaTwitch, FaTwitter } from 'react-icons/fa';
 import { Button } from "@/components/ui/button"
 import {
   Card,
   CardContent,
   CardDescription,
-  CardFooter,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card"
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
-import { AlertDialog,  AlertDialogCancel, AlertDialogContent, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle, AlertDialogTrigger } from "@/components/ui/alert-dialog";
 import { Badge } from "@/components/ui/badge";
  
 import { siteConfig } from "@/config/site" 
@@ -43,7 +41,7 @@ export default function IndexPage() {
                     <div className="grid gap-1">
                         <CardTitle>Jaroslav Maša</CardTitle>
                         <CardDescription>
-                            Frontend developer, musician and entrepreneur. Learning web development since 2016 until today. Experience in JavaScript lately in TypeScript. I was learning Java, PHP, React, Redux, and a lot of React Frameworks, while finding out that nextjs is the best choice for him. I deploy websites on vercel which is free hosting of dynamic websites like this, so you don't need to pay anything, just custom domain if you need to.
+                            Frontend developer, musician and entrepreneur.
                         </CardDescription>
                         <div className="flex flex-wrap gap-2">
                             {siteConfig.skills.sort((a, b) => a.localeCompare(b)).map((skill) => {
