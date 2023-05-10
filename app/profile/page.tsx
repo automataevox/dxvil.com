@@ -10,38 +10,39 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card"
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
+import { Avatar, AvatarImage } from '@/components/ui/avatar';
 import { Badge } from "@/components/ui/badge";
  
 import { siteConfig } from "@/config/site" 
-import ActivityTile from './activityTile';
+import ActivityTile, { fetchData } from './activityTile';
 import { SocialTile } from './socialTile';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Skeleton } from '@/components/ui/skeleton';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
-import { Plus } from 'lucide-react';
 interface DiscordData {
     data: {
         discord_user: {
             avatar: string
         },
-        discord_status :string;
+        discord_status: string
+        active_on_discord_desktop: boolean
+        active_on_discord_mobile: boolean
+        active_on_discord_web: boolean
     }
 }
-
-const DISCORD_STATUSES = [
-    {name: "online", value: "bg-green-500"},
-    {name: "offline", value: "border-2 border border-gray-500"},
-    {name: "idle", value: "bg-yellow-500"},
-    {name: "dnd", value: "bg-red-500"}
-]
 
 export default function ProfilePage() {
     const [isLoading, setIsLoading] = useState(true)
     const [discordData, setDiscordData] = useState<DiscordData | null>(null);
 
+    useEffect(() => {
+        const interval = setInterval(() => {
+            fetchData({setDiscordData, setIsLoading, discordData, isLoading});
+        }, 2000);
+        return () => clearInterval(interval);
+    });
 
     function handleEmailSend(): void{
         const subject = (document.getElementById('subject') as HTMLInputElement)?.value;
@@ -50,17 +51,35 @@ export default function ProfilePage() {
         window.open(`mailto:${email}?subject=${subject}&body=${message}`)
     }
 
+    const DISCORD_STATUSES = [
+        {name: "online", value: "bg-green-500"},
+        {name: "offline", value: "border-2 border border-gray-500"},
+        {name: "idle", value: "bg-yellow-500"},
+        {name: "dnd", value: "bg-red-500"}
+    ]
+    
+
+    const ACTIVE_DEVICES = [
+        {name: "Desktop", value: discordData?.data?.active_on_discord_desktop},
+        {name: "Mobile", value: discordData?.data?.active_on_discord_mobile},
+        {name: "Web", value: discordData?.data?.active_on_discord_web}
+    ]
 
     return (
         <section className="container grid items-center gap-6 pb-8 pt-6 md:py-10">
             <Card>
                 <CardHeader className="flex-col items-center gap-2 sm:flex-row sm:items-start sm:gap-5">
                     {
-                        !isLoading ? 
-                        <Avatar className="h-[100px] w-[100px]">
-                            <AvatarImage src={`https://cdn.discordapp.com/avatars/${siteConfig.profile.discordUserId}/${discordData?.data?.discord_user?.avatar}`} alt="@suishou" />
-                        </Avatar>
-                        : <Skeleton className="h-[100px] w-[100px] rounded-full" />
+                        !isLoading ?
+                        <div>
+                            <Avatar className="h-24 w-24">
+                                <AvatarImage src={`https://cdn.discordapp.com/avatars/${siteConfig.profile.discordUserId}/${discordData?.data?.discord_user?.avatar}`} alt="@suishou" />
+                            </Avatar>
+                        </div> 
+                        :
+                        <div>
+                            <Skeleton className="h-24 w-24 rounded-full" />
+                        </div>
                     }
                     <div className="grid justify-items-center gap-2 sm:justify-items-start">
                         <div className="flex items-center gap-2">
@@ -71,7 +90,7 @@ export default function ProfilePage() {
                                         <div className={`mt-1 h-2 w-2 rounded-full ${DISCORD_STATUSES.find(status => status.name === discordData?.data.discord_status)?.value}`} />
                                     </TooltipTrigger> 
                                     <TooltipContent>
-                                        <p className="capitalize">{discordData?.data?.discord_status}</p>
+                                        <p className="capitalize">{discordData?.data?.discord_status} ({ACTIVE_DEVICES.filter(device => device.value === true).map(dev => dev.name).join(", ")})</p>
                                     </TooltipContent>
                                 </Tooltip>
                             </TooltipProvider>
@@ -137,7 +156,7 @@ export default function ProfilePage() {
                     </>
                     <>
                         <h1 className="my-2 scroll-m-20 text-2xl font-semibold tracking-tight">Current activity <span className="text-sm text-gray-500">(according to discord)</span></h1>
-                        <ActivityTile setDiscordData={setDiscordData} discordData={discordData} isLoading={isLoading} setIsLoading={setIsLoading}/>
+                        <ActivityTile discordData={discordData} isLoading={isLoading}/>
                     </>
                     <div className={"mt-5"}>
                         <h1 className="my-2 scroll-m-20 text-2xl font-semibold tracking-tight">Get in touch</h1>
