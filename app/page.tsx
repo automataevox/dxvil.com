@@ -1,28 +1,19 @@
 'use client'
 
-import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardDescription, CardHeader } from "@/components/ui/card"
-
 {/* <span className="bg-gradient-to-r from-green-500 to-emerald-700 bg-clip-text text-transparent ">NodeJS. </span>
 <span className="bg-gradient-to-r from-orange-600 to-orange-800 bg-clip-text text-transparent ">HTML. </span>
 <span className="bg-gradient-to-r from-blue-500 to-blue-700 bg-clip-text text-transparent ">CSS </span> */}
-import { ScrollArea } from "@/components/ui/scroll-area"
-import { Separator } from "@/components/ui/separator"
-import Image from "next/image"
-import Link from "next/link"
 import React from "react"
- 
-const tags = Array.from({ length: 50 }).map(
-  (_, i, a) => `v1.2.0-beta.${a.length - i}`
-)
+import ProjectTile from "./projectTile"
+import { siteConfig } from "@/config/site"
 
 export default function IndexPage() {
   return (
-      <section className="container grid items-center gap-48 pb-8 pt-6 md:py-10">
+      <section className="container grid items-center gap-24 pb-8 pt-6 sm:gap-48 md:py-10">
         {/* ---=== HEADING ===--- */}
         <div className="flex max-w-[980px] flex-col items-start gap-2">
           <h1 className="text-3xl font-extrabold leading-tight tracking-tighter sm:text-3xl md:text-5xl lg:text-6xl">
-            <span className="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 bg-clip-text text-transparent ">Developer. </span><br className="hidden sm:inline" />
+            <span className="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 bg-clip-text text-transparent ">Developer. </span><br className="inline" />
             Its more than passion.
           </h1>
             <p className="max-w-[700px] text-lg text-muted-foreground sm:text-xl">
@@ -32,14 +23,10 @@ export default function IndexPage() {
 
         {/* ---=== LANGUAGES PT.1 ===--- */}
         <div className="flex max-w-[100%] flex-col items-end gap-2">
-        
           <h1 className="text-right text-3xl font-extrabold leading-tight tracking-tighter sm:text-3xl md:text-5xl lg:text-6xl">
-          <span className="bg-gradient-to-r from-blue-500  to-indigo-600 bg-clip-text text-transparent"> TypeScript. </span>
-          
-
+            <span className="bg-gradient-to-r from-blue-500  to-indigo-600 bg-clip-text text-transparent"> TypeScript. </span>
             <span className="bg-gradient-to-r from-yellow-400 to-orange-500 bg-clip-text text-transparent"> JavaScript. </span>
-            <br className="hidden sm:inline" />
-
+            <br className="inline" />
           Not just a language.
           </h1>
         <p className="max-w-[700px] text-right text-lg text-muted-foreground sm:text-xl">
@@ -54,23 +41,28 @@ export default function IndexPage() {
         <div className="flex max-w-[100%] flex-col items-start gap-2">
           <h1 className="text-3xl font-extrabold leading-tight tracking-tighter sm:text-3xl md:text-5xl lg:text-6xl">
           <span className="bg-gradient-to-r from-green-500 to-emerald-700 bg-clip-text text-transparent">Projects. </span>
-            <br className="hidden sm:inline" />
+            <br className="inline" />
             I have been working on.
           </h1>
           <p className="max-w-[700px] text-lg text-muted-foreground sm:text-xl">
-            Projects where expectations meets reality.
+            Projects where imagination meets reality.
           </p>
-          <div>
-            <Card>
-              <div className="w-[25rem]">
-                <Image src="/cyberpunk1.jpg" width={420} height={200} alt="cyberpunk" className="rounded-t-lg"/>
-              </div>
-              <Separator />
-              <CardDescription className="flex items-center justify-between p-4">
-                  dxvil.com
-                  <Button>Visit</Button>
-              </CardDescription>
-            </Card>
+
+          <div className="flex flex-row flex-wrap gap-5">
+            {
+              Object.entries(siteConfig.project).map(p => {
+                console.log()
+                return(
+                  <ProjectTile
+                    key={p[1].name}
+                    imageSrc={p[1].img.src}
+                    alt={p[1].img.alt}
+                    projectName={p[1].name}
+                    visitUrl={p[1].url}
+                  />
+                )
+              })
+            }
           </div>
         </div>
       </section>

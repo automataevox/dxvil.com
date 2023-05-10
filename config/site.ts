@@ -13,6 +13,10 @@ export const siteConfig = {
       title: "Profile",
       href: "/profile",
     },
+    {
+      title: "Projects",
+      href: "/projects",
+    },
   ],
   links: {
     github: {
@@ -53,5 +57,15 @@ export const siteConfig = {
     alert: {
       description: 'After some time there is whole new page for me. So if you are interested in work with me, just contact me though this webpage!'
     }
+  },
+  project: {
+    dxvil: {
+      img: {
+        src: "/dev.dxvil.com.png",
+        alt: "Cyberpunk"
+      },
+      name: "dxvil.com",
+      url: "https://dxvil.com/"
+    },
   }
 }

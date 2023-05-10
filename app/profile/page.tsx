@@ -18,7 +18,7 @@ import { SocialTile } from './socialTile';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 
-export default function IndexPage() {
+export default function ProfilePage() {
 
     function handleEmailSend(): void{
         const subject = (document.getElementById('subject') as HTMLInputElement)?.value;
@@ -31,19 +31,19 @@ export default function IndexPage() {
     return (
         <section className="container grid items-center gap-6 pb-8 pt-6 md:py-10">
             <Card>
-                <CardHeader className="flex-row gap-5">
+                <CardHeader className="flex-col items-center gap-2 sm:flex-row sm:items-start sm:gap-5">
                     {
                         <Avatar className="h-[100px] w-[100px]">
                             <AvatarImage src="https://cdn.discordapp.com/avatars/681885446455689216/a_1cb9c8369043e20c7866c20c20d17aeb.gif" alt="@suishou" />
                             <AvatarFallback>JM</AvatarFallback>
                         </Avatar>
                     }
-                    <div className="grid gap-1">
-                        <CardTitle className="text-xl">Jaroslav Maša</CardTitle>
-                        <CardDescription>
+                    <div className="grid justify-items-center gap-2 sm:justify-items-start">
+                        <CardTitle className="mb-[-5px] text-xl">Jaroslav Maša</CardTitle>
+                        <CardDescription className="text-center sm:text-left">
                             Frontend developer, musician and entrepreneur.
                         </CardDescription>
-                        <div className="flex flex-wrap gap-2">
+                        <div className="flex flex-wrap justify-center gap-2 sm:justify-start">
                             {siteConfig.skills.sort((a, b) => a.localeCompare(b)).map((skill) => {
                                 return(
                                     <Badge key={skill} variant={"secondary"}>{skill}</Badge>
