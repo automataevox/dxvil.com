@@ -35,7 +35,7 @@ export default function ActivityTile({isLoading, discordData, setDiscordData, se
                 </div>
             </>
             :
-            discordData.data?.activities !== undefined ?
+            discordData.data?.activities.length !== 0 ?
             discordData.data?.activities.map((activity: {
               session_id: any;
               application_id: any;
@@ -58,7 +58,11 @@ export default function ActivityTile({isLoading, discordData, setDiscordData, se
             })          
             :
             <>
-                Nothing to show here...
+              <Image src={`https://media.tenor.com/dky9QWq39XAAAAAi/yes-happy.gif`} alt={`Z z z`} width={250} height={250} className="h-16 w-16 rounded-md" />
+                <div className="flex flex-col justify-center">
+                  <p className="text-md font-bold">Nothing to show here...</p>
+                  <p className="text-md text-muted-foreground">I am doing nothing probably</p>
+                </div>
             </>
         }
       </CardContent>

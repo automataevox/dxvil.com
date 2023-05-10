@@ -8,7 +8,8 @@ const nextConfig = {
     domains: [
       "cdn.discordapp.com",
       "cdn.discordapp.com/app-assets/",
-      "i.imgur.com"
+      "i.imgur.com",
+      "media.tenor.com",
     ]
   },
 }

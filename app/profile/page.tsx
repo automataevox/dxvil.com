@@ -20,13 +20,23 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { useState } from 'react';
 import { Skeleton } from '@/components/ui/skeleton';
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
+import { Plus } from 'lucide-react';
 interface DiscordData {
     data: {
         discord_user: {
-            avatar: string;
-        };
-    };
+            avatar: string
+        },
+        discord_status :string;
+    }
 }
+
+const DISCORD_STATUSES = [
+    {name: "online", value: "bg-green-500"},
+    {name: "offline", value: "border-2 border border-gray-500"},
+    {name: "idle", value: "bg-yellow-500"},
+    {name: "dnd", value: "bg-red-500"}
+]
 
 export default function ProfilePage() {
     const [isLoading, setIsLoading] = useState(true)
@@ -53,7 +63,19 @@ export default function ProfilePage() {
                         : <Skeleton className="h-[100px] w-[100px] rounded-full" />
                     }
                     <div className="grid justify-items-center gap-2 sm:justify-items-start">
-                        <CardTitle className="mb-[-5px] text-xl">Jaroslav Maša</CardTitle>
+                        <div className="flex items-center gap-2">
+                            <CardTitle className="mb-[-5px] text-xl">Jaroslav Maša</CardTitle>
+                            <TooltipProvider>
+                                <Tooltip >
+                                    <TooltipTrigger asChild>
+                                        <div className={`mt-1 h-2 w-2 rounded-full ${DISCORD_STATUSES.find(status => status.name === discordData?.data.discord_status)?.value}`} />
+                                    </TooltipTrigger> 
+                                    <TooltipContent>
+                                        <p className="capitalize">{discordData?.data?.discord_status}</p>
+                                    </TooltipContent>
+                                </Tooltip>
+                            </TooltipProvider>
+                        </div>
                         <CardDescription className="text-center sm:text-left">
                             Frontend developer, musician and entrepreneur.
                         </CardDescription>
