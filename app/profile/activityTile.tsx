@@ -48,12 +48,13 @@ export default function ActivityTile({isLoading, discordData, setDiscordData, se
             }) => {
               return(
                 <div key={activity.application_id} className="flex gap-5">
-                  <Image src={activity.assets.large_image.startsWith('mp:external/') ? `https://${activity.assets.large_image.slice(62)}` : `https://cdn.discordapp.com/app-assets/${activity.application_id}/${activity.assets.large_image}`} alt={activity.assets.large_text} width={250} height={250} className="h-16 w-16 rounded-md" />
-                  <div className="flex flex-col justify-center">
-                    <p className="text-md font-bold">{activity.name}</p>
-                    <p className="text-md text-muted-foreground">{activity.details}</p>
+                  <Image src={activity.assets.large_image.startsWith('mp:external/') ? `https://${activity.assets.large_image.slice(62)}` : `https://cdn.discordapp.com/app-assets/${activity.application_id}/${activity.assets.large_image}`} alt={activity.assets.large_text} width={250} height={250} className="h-16 w-16 rounded-md"/>
+                  <div className="flex flex-col justify-center overflow-hidden whitespace-nowrap">
+                    <p className="sm:text-md overflow-hidden text-ellipsis text-sm font-bold">{activity.name}</p>
+                    <p className="sm:text-md overflow-hidden text-ellipsis text-sm text-muted-foreground">{activity.details}</p>
                   </div>
                 </div>
+
               )
             })          
             :
