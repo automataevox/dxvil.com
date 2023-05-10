@@ -8,6 +8,7 @@ import ProjectTile from "./projectTile"
 import { siteConfig } from "@/config/site"
 
 export default function IndexPage() {
+
   return (
       <section className="container grid items-center gap-24 pb-8 pt-6 sm:gap-48 md:py-10">
         {/* ---=== HEADING ===--- */}
@@ -49,19 +50,19 @@ export default function IndexPage() {
           </p>
 
           <div className="flex flex-row flex-wrap gap-5">
-            {
-              Object.entries(siteConfig.project).map(p => {
+          {
+            siteConfig.projects.map(p => {
                 console.log()
                 return(
-                  <ProjectTile
-                    key={p[1].name}
-                    imageSrc={p[1].img.src}
-                    alt={p[1].img.alt}
-                    projectName={p[1].name}
-                    visitUrl={p[1].url}
-                  />
+                <ProjectTile
+                    key={p.name}
+                    imageSrc={p.img_src}
+                    alt={p.img_alt}
+                    projectName={p.name}
+                    visitUrl={p.url}
+                />
                 )
-              })
+            })
             }
           </div>
         </div>

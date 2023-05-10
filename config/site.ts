@@ -56,16 +56,16 @@ export const siteConfig = {
   profile: {
     alert: {
       description: 'After some time there is whole new page for me. So if you are interested in work with me, just contact me though this webpage!'
-    }
+    },
+    discordUserId: "681885446455689216"
   },
-  project: {
-    dxvil: {
-      img: {
-        src: "/dev.dxvil.com.png",
-        alt: "Cyberpunk"
-      },
-      name: "dxvil.com",
+  projects: [
+    {
+      img_src: "/dark_dev.dxvil.com.png",
+      img_alt: "Cyberpunk",
+      name: "dxvil",
       url: "https://dxvil.com/"
     },
-  }
+  ]
 }
+
