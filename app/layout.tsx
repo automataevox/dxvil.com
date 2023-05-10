@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-head-element */
 import("../styles/globals.css").then(result => result.default)
 import("../styles/custom.css").then(result => result.default)
 
@@ -9,6 +10,7 @@ import { cn } from "@/lib/utils"
 import { SiteHeader } from "@/components/site-header"
 import { ThemeProvider } from "@/components/theme-provider"
 import { TailwindIndicator } from "@/components/tailwind-indicator"
+import Head from "next/head"
 
 
 
@@ -20,7 +22,10 @@ export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <>
       <html lang="en" suppressHydrationWarning>
-        <head />
+        <head>
+          <title>{`${siteConfig.name} | DXVIL`}</title>
+          <meta name="description" content="There is description"></meta>
+        </head>
         <body
           className={cn(
             "min-h-screen bg-background font-sans antialiased",

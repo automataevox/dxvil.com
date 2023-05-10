@@ -1,7 +1,7 @@
 export type SiteConfig = typeof siteConfig
 
 export const siteConfig = {
-  name: "/_dev",
+  name: ".DEV",
   description:
     "Beautifully designed components built with Radix UI and Tailwind CSS.",
   mainNav: [
@@ -64,7 +64,7 @@ export const siteConfig = {
       img_src: "/dark_dev.dxvil.com.png",
       img_alt: "Cyberpunk",
       name: "dxvil",
-      url: "https://dxvil.com/"
+      url: "https://dev.dxvil.com/"
     },
   ]
 }
