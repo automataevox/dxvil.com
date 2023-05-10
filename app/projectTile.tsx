@@ -1,3 +1,5 @@
+'use client'
+
 import { useRouter } from 'next/navigation';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader } from "@/components/ui/card";
@@ -41,7 +43,7 @@ export default function ProjectTile({
                 </AlertDialogTrigger>
                 <AlertDialogContent>
                     <AlertDialogHeader>
-                        <AlertDialogTitle>Comming soon...</AlertDialogTitle>
+                        <AlertDialogTitle>Coming soon...</AlertDialogTitle>
                         <AlertDialogDescription>
                             We are sorry but this function is still under development and we will release it as soon as possible. 
                         </AlertDialogDescription>

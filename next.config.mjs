@@ -10,6 +10,8 @@ const nextConfig = {
       "cdn.discordapp.com/app-assets/",
       "i.imgur.com",
       "media.tenor.com",
+      "i.scdn.co",
+      "avatars.githubusercontent.com",
     ]
   },
 }
