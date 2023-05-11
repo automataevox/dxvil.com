@@ -1,24 +1,41 @@
+'use client'
+
 import * as React from "react"
 import Link from "next/link"
 
 import { NavItem } from "@/types/nav"
 import { siteConfig } from "@/config/site"
 import { cn } from "@/lib/utils"
-import { Icons } from "@/components/icons"
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "./ui/select"
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "./ui/tooltip"
 
 interface MainNavProps {
   items?: NavItem[]
 }
 
 export function MainNav({ items }: MainNavProps) {
+  const [gitData, setGitData] = React.useState<undefined | any>(undefined)
+
+  if(!gitData) {
+    fetch(`https://api.github.com/repos/suishounohibiki/dxvil.com/commits`).then(async res => {
+      setGitData(await res.json())
+    })
+  }
+
+  console.log(gitData)
+
   return (
     <div className="flex gap-6 md:gap-10">
       <Link href="/" className="flex items-center space-x-2">
-        {/* <Icons.logo className="h-6 w-6" /> */}
-        <span className="hidden font-bold sm:inline-block">
-          {siteConfig.name}
-        </span>
+        <TooltipProvider>
+            <Tooltip >
+                <TooltipTrigger asChild>
+                  <span className="inline-block font-bold">{siteConfig.name}</span>
+                </TooltipTrigger> 
+                <TooltipContent>
+                    <p className="capitalize">build {gitData[0].sha.slice(0, 7)}</p>
+                </TooltipContent>
+            </Tooltip>
+        </TooltipProvider>
       </Link>
       {items?.length ? (
         <nav className="flex gap-6">
