@@ -30,7 +30,7 @@ export function MainNav({ items }: MainNavProps) {
                   <span className="inline-block font-bold">{siteConfig.name}</span>
                 </TooltipTrigger> 
                 <TooltipContent>
-                    <p className="capitalize">build {gitData !== undefined ? gitData[0]?.sha.toLowerCase().slice(0, 7) : "unknown"}</p>
+                    <p className="capitalize">build <span className="font-mono lowercase">{gitData !== undefined ? gitData[0]?.sha.slice(0, 7) : "unknown"}</span></p>
                 </TooltipContent>
             </Tooltip>
         </TooltipProvider>
