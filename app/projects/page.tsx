@@ -2,8 +2,8 @@
 'use client'
 
 import { siteConfig } from "@/config/site"
-import ProjectTile from "../projectTile"
-import ProjectsTitle from "../projectsTitle"
+import ProjectTile from "../../components/projectTile"
+import ProjectsTitle from "../../components/projectsTitle"
 
 export default function IndexPage() {
     return (

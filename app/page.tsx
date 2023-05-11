@@ -2,9 +2,9 @@
 <span className="bg-gradient-to-r from-orange-600 to-orange-800 bg-clip-text text-transparent ">HTML. </span>
 <span className="bg-gradient-to-r from-blue-500 to-blue-700 bg-clip-text text-transparent ">CSS </span> */}
 import React from "react"
-import HeadingTitle from "./headingTitle"
-import LanguagesTitle from "./languagesTitle"
-import ProjectsTitle from "./projectsTitle"
+import HeadingTitle from "../components/headingTitle"
+import LanguagesTitle from "../components/languagesTitle"
+import ProjectsTitle from "../components/projectsTitle"
 
 export default function IndexPage() {
 

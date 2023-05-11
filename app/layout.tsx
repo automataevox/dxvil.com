@@ -1,16 +1,14 @@
 /* eslint-disable @next/next/no-head-element */
 import("../styles/globals.css").then(result => result.default)
 import("../styles/custom.css").then(result => result.default)
+import("../config/metadata").then(result => result.metadata)
 
-import { metadata } from "./metadata"
 
 import { siteConfig } from "@/config/site"
 import { fontSans } from "@/lib/fonts"
 import { cn } from "@/lib/utils"
 import { SiteHeader } from "@/components/site-header"
 import { ThemeProvider } from "@/components/theme-provider"
-import { TailwindIndicator } from "@/components/tailwind-indicator"
-import Head from "next/head"
 
 
 
@@ -38,7 +36,6 @@ export default function RootLayout({ children }: RootLayoutProps) {
               <SiteHeader />
               <div className="flex-1">{children}</div>
             </div>
-            {/*<TailwindIndicator />*/}
           </ThemeProvider>
         </body>
       </html>

@@ -22,7 +22,7 @@ export default function ActivityTile({isLoading, discordData}: ActivityTileProps
   return (
     <>
     
-      <h1 className="my-2 scroll-m-20 text-2xl font-semibold tracking-tight">Current activity <span className="text-sm text-gray-500">(according to discord)</span></h1>
+      <h1 className="my-2 scroll-m-20 text-2xl font-semibold tracking-tight">Current activity <span className="text-sm text-gray-400">(according to discord)</span></h1>
       <Card className="pt-6">
         <CardContent className="flex flex-wrap gap-14">
           {
