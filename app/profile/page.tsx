@@ -6,7 +6,7 @@ import {
   CardHeader,
 } from "@/components/ui/card"
 
-import ActivityTile, { fetchData } from './activityTile';
+import ActivityTile, { fetchData } from '../../components/activityTile';
 import { useEffect, useState } from 'react';
 import SocialsGrid from "@/components/socialsGrid";
 import EmailComponent from "@/components/emailComponent";

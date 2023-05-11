@@ -48,7 +48,7 @@ export default function ActivityTile({isLoading, discordData}: ActivityTileProps
                 details: string | undefined;
               }) => {
                 return(
-                  <div key={activity?.application_id} className="flex max-w-xs flex-1 gap-5">
+                  <div key={activity?.application_id} className="flex max-w-[250px] md:max-w-xs flex-1 gap-5">
                     <Image 
                       src={activity?.assets?.large_image.startsWith('mp:external/') ?
                       `https://${activity?.assets?.large_image.slice(62)}` 

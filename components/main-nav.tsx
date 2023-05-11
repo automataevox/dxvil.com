@@ -18,7 +18,7 @@ export function MainNav({ items }: MainNavProps) {
   if(!gitData) {
     fetch(`https://api.github.com/repos/suishounohibiki/dxvil.com/commits`).then(async res => {
       setGitData(await res.json())
-    })
+    }).catch(e => console.log(e));
   }
 
   return (

@@ -66,7 +66,7 @@ export const siteConfig = {
   },
   projects: [
     {
-      img_src: "/dark_dev.dxvil.com.png",
+      img_src: "/assets/images/dark_dev.dxvil.com.png",
       img_alt: "Cyberpunk",
       name: "dxvil",
       url: "https://dev.dxvil.com/"

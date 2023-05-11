@@ -1,4 +1,4 @@
-import { SocialTile } from "@/app/profile/socialTile";
+import { SocialTile } from "./socialTile";
 import { siteConfig } from "@/config/site";
 import { FaDiscord, FaGithubAlt, FaInstagram, FaQuestion, FaSpotify, FaSteamSymbol, FaTwitch, FaTwitter } from 'react-icons/fa';
 

@@ -22,7 +22,10 @@ export default function RootLayout({ children }: RootLayoutProps) {
       <html lang="en" suppressHydrationWarning>
         <head>
           <title>{`${siteConfig.name} | DXVIL`}</title>
-          <meta name="description" content="There is description"></meta>
+          <meta name="description" content="There is description"/>
+          <meta name="theme-color" content="#030711"></meta>
+          <link rel="manifest" href="/manifest.json" />
+          <link rel="icon" type="icon/png" href="/images/icons-192.png" />
         </head>
         <body
           className={cn(
