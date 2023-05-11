@@ -27,10 +27,10 @@ export function MainNav({ items }: MainNavProps) {
         <TooltipProvider>
             <Tooltip >
                 <TooltipTrigger asChild>
-                  <span className="inline-block font-bold">{siteConfig.name.toLowerCase()}</span>
+                  <span className="inline-block font-bold">{siteConfig.name}</span>
                 </TooltipTrigger> 
                 <TooltipContent>
-                    <p className="capitalize">build {gitData !== undefined ? gitData[0]?.sha.slice(0, 7) : "unknown"}</p>
+                    <p className="capitalize">build {gitData !== undefined ? gitData[0]?.sha.slice(0, 7).toLowerCase() : "unknown"}</p>
                 </TooltipContent>
             </Tooltip>
         </TooltipProvider>
