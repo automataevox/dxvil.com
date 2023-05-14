@@ -47,17 +47,18 @@ export default function ActivityTile({isLoading, discordData}: ActivityTileProps
                 name: string;
                 details: string | undefined;
               }) => {
+                var f = 0
                 return(
-                  <div key={activity?.application_id} className="flex max-w-[250px] md:max-w-xs flex-1 gap-5">
+                  <div key={activity?.application_id || f++} className="flex max-w-[250px] flex-1 gap-5 md:max-w-xs">
                     <Image 
                       src={activity?.assets?.large_image.startsWith('mp:external/') ?
                       `https://${activity?.assets?.large_image.slice(62)}` 
                       : activity?.assets?.large_image.startsWith('spotify:') ?
                         `https://i.scdn.co/image/${activity?.assets?.large_image.slice(8)}`
                         : activity?.assets?.large_image == undefined ?
-                        `/fallback_activity.jpg` 
+                        `/assets/images/fallback_activity.jpg` 
                         : `https://cdn.discordapp.com/app-assets/${activity?.application_id}/${activity?.assets?.large_image}`}
-                      alt={activity?.assets?.large_text} width={250} height={250} className="h-16 w-16 rounded-md"/>
+                      alt={activity?.assets?.large_text || "unknown"} width={250} height={250} className="h-16 w-16 rounded-md"/>
                     <div className="flex flex-col justify-center overflow-hidden whitespace-nowrap">
                       <p className="sm:text-md overflow-hidden text-ellipsis text-sm font-bold">{activity?.name}</p>
                       <p className="sm:text-md overflow-hidden text-ellipsis text-sm text-muted-foreground">{activity?.details}</p>
