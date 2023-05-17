@@ -50,7 +50,7 @@ export const siteConfig = {
       spotify: {
         name: "Spotify",
         username: "DXVIL",
-        url: ""
+        url: "https://open.spotify.com/artist/1Ngynwc6bFIKGzRcOrBAnx"
       },
       steam: {
         name: "Steam",
