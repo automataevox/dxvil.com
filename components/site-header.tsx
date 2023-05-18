@@ -46,7 +46,7 @@ export function SiteHeader() {
               <AlertDialogContent>
                 <AlertDialogHeader>
                   <AlertDialogTitle>Changelog</AlertDialogTitle>
-                  <AlertDialogDescription className="md:max-h-[66vh] max-h-[88vh] overflow-auto text-left">
+                  <AlertDialogDescription className="max-h-[88vh] overflow-auto text-left capitalize md:max-h-[66vh]">
                     {gitCommits?.map(({commit}:any) => {
                       const c = commit;
                       
@@ -54,7 +54,7 @@ export function SiteHeader() {
                         oldCD = new Date(c.committer.date).toDateString();
                         return(  
                           <>
-                            <span className="block font-bold text-md">{new Date(c.committer.date).toDateString()}</span>
+                            <span className="text-md block font-bold">{new Date(c.committer.date).toDateString()}</span>
                             <span>- {c?.message}</span>
                           </>  
                         )
