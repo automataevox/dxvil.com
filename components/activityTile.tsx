@@ -61,8 +61,8 @@ export default function ActivityTile({isLoading, discordData}: ActivityTileProps
                       alt={activity?.assets?.large_text || "unknown"} width={250} height={250} className="h-16 w-16 rounded-md"/>
                     <div className="flex flex-col justify-center overflow-hidden whitespace-nowrap">
                       <p className="sm:text-md overflow-hidden text-ellipsis text-sm font-bold">{activity?.name}</p>
-                      <p className="sm:text-md overflow-hidden text-ellipsis text-sm text-muted-foreground">{activity?.details}</p>
-                      <p className="sm:text-md overflow-hidden text-ellipsis text-sm text-muted-foreground">{activity?.state}</p>
+                      <p className="sm:text-md text-muted-foreground overflow-hidden text-ellipsis text-sm">{activity?.details}</p>
+                      <p className="sm:text-md text-muted-foreground overflow-hidden text-ellipsis text-sm">{activity?.state}</p>
                     </div>
                   </div>
 
@@ -73,7 +73,7 @@ export default function ActivityTile({isLoading, discordData}: ActivityTileProps
                 <Image src={`https://media.tenor.com/dky9QWq39XAAAAAi/yes-happy.gif`} alt={`nothing...`} width={250} height={250} className="h-16 w-16 rounded-md" />
                   <div className="flex flex-col justify-center overflow-hidden whitespace-nowrap">
                     <p className="text-md overflow-hidden text-ellipsis font-bold">Nothing to show here...</p>
-                    <p className="text-md overflow-hidden text-ellipsis text-muted-foreground">I am doing nothing probably</p>
+                    <p className="text-md text-muted-foreground overflow-hidden text-ellipsis">I am doing nothing probably</p>
                   </div>
               </div>
           }

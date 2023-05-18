@@ -1,8 +1,5 @@
-'use client'
-
 import * as React from "react"
 import Link from "next/link"
-
 import { NavItem } from "@/types/nav"
 import { siteConfig } from "@/config/site"
 import { cn } from "@/lib/utils"
@@ -10,17 +7,11 @@ import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "./ui/t
 
 interface MainNavProps {
   items?: NavItem[]
+  gitData: any
 }
 
-export function MainNav({ items }: MainNavProps) {
-  const [gitData, setGitData] = React.useState<undefined | any>(undefined)
-  React.useEffect(() => {
-    if(!gitData) {
-      fetch(`https://api.github.com/repos/suishounohibiki/dxvil.com/commits`).then(async res => {
-        setGitData(await res.json())
-      })
-    }
-  })
+export function MainNav({ items, gitData }: MainNavProps) {
+
 
   return (
     <div className="flex gap-6 md:gap-10">
@@ -45,7 +36,7 @@ export function MainNav({ items }: MainNavProps) {
                   key={index}
                   href={item.href}
                   className={cn(
-                    "flex items-center text-sm font-semibold text-muted-foreground sm:text-sm",
+                    "text-muted-foreground flex items-center text-sm font-semibold sm:text-sm",
                     item.disabled && "cursor-not-allowed opacity-80"
                   )}
                 >

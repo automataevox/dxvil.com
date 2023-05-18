@@ -15,7 +15,7 @@ function SocialTile({name, username, icon, url, disabled}: LinkButtonContent) {
             {icon}
             <div className='flex flex-col items-start gap-1'>
                 <small className="text-sm font-semibold leading-none">{name}</small>
-                <p className="text-xs text-muted-foreground">{username}</p>
+                <p className="text-muted-foreground text-xs">{username}</p>
             </div>
         </SocialLink>
     )
