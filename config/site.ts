@@ -22,7 +22,7 @@ export const siteConfig = {
   profile: {
     info: {
       name: "Jaroslav Maša",
-      description: "Frontend developer, musician and entrepreneur.",
+      description: "Fullstack developer and musician.",
       skills: [
         "JavaScript", "TypeScript", "PHP", "HTML", "Java", "CSS", "Redux", "React", "Node.js", "ExpressJS", "Docker"
       ],
