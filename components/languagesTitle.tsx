@@ -7,7 +7,7 @@ export default function LanguagesTitle() {
             <br className="inline" />
           Not just a language.
           </h1>
-        <p className="max-w-[700px] text-right text-lg text-muted-foreground sm:text-xl">
+        <p className="text-muted-foreground max-w-[700px] text-right text-lg sm:text-xl">
         The pure ❤️ of 
         <span className="bg-gradient-to-r from-blue-500  to-indigo-600 bg-clip-text font-bold text-transparent"> front-end</span> and 
         <span className="bg-gradient-to-r from-yellow-400 to-orange-500 bg-clip-text font-bold text-transparent"> back-end </span>
