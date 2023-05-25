@@ -17,6 +17,10 @@ export const siteConfig = {
       title: "Projects",
       href: "/projects",
     },
+    {
+      title: "Playground",
+      href: "/dataPlayground",
+    }
   ],
  
   profile: {
