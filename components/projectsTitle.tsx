@@ -9,7 +9,7 @@ export default function ProjectsTitle() {
           <br className="inline" />
           I have been working on.
         </h1>
-        <p className="max-w-[700px] text-lg text-muted-foreground sm:text-xl">
+        <p className="text-muted-foreground max-w-[700px] text-lg sm:text-xl">
           Projects where imagination meets reality.
         </p>
 
