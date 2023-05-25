@@ -46,7 +46,7 @@ export function SiteHeader() {
               <AlertDialogContent>
                 <AlertDialogHeader>
                   <AlertDialogTitle>Changelog</AlertDialogTitle>
-                  <AlertDialogDescription className="max-h-[88vh] overflow-auto text-left capitalize md:max-h-[66vh]">
+                  <AlertDialogDescription className="max-h-[88vh] overflow-auto text-left capitalize">
                     {gitCommits?.map(({commit}:any) => {
                       const c = commit;
                       
