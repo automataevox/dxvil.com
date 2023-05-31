@@ -24,14 +24,14 @@ export const siteConfig = {
       title: "Playground",
       paging: [
         {
-          title: "RevX",
+          title: "RevX (WIP)",
           href: "/playground/revx",
           description: "Data binary visualization"
         },
         {
-          title: "C-Gen",
+          title: "C-Gen (WIP)",
           href: "/playground/cgen",
-          description: "Simple component generator for shadcnUI"
+          description: "Simple component generator for shadcn/ui"
         }
       ]
     }
