@@ -8,7 +8,7 @@ import { Separator } from "@/components/ui/separator";
 import { Textarea } from "@/components/ui/textarea";
 import { useState } from "react";
 
-export default function DataPlayground(){
+export default function RevX(){
     const [data, setData] = useState([]);
     const [offset, setOffset] = useState(0); // Variable to store the offset
     

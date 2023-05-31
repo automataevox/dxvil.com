@@ -8,18 +8,25 @@ export const siteConfig = {
     {
       title: "Home",
       href: "/",
+      paging: null,
     },
     {
       title: "Profile",
       href: "/profile",
+      paging: null,
     },
     {
       title: "Projects",
       href: "/projects",
+      paging: null,
     },
     {
       title: "Playground",
-      href: "/dataPlayground",
+      paging: {
+        title: "RevX",
+        href: "/playground/revx",
+        description: "Data binary visualization",
+      }
     }
   ],
  
