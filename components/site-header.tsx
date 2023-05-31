@@ -18,28 +18,59 @@ import {
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog"
 import React from "react"
+import { useToast } from "./ui/use-toast"
+import { Toaster } from "./ui/toaster"
+
 
 
 export function SiteHeader() {
+  const { toast } = useToast()
   const [gitCommits, setGitCommits] = React.useState<undefined | any>(undefined)
+  const [processedCommits, setProcessedCommits] = React.useState(false)
   React.useEffect(() => {
-    if(!gitCommits) {
+    if (!gitCommits) {
       fetch(`https://api.github.com/repos/suishounohibiki/dxvil.com/commits`).then(async res => {
         setGitCommits(await res.json())
       })
     }
   })
-  var oldCD : any;
+
+  React.useEffect(() => {
+    if (gitCommits && !processedCommits) {
+      console.log("run")
+      const latestCommit = gitCommits[0].sha
+      const storedCommit = localStorage.getItem('latestCommit')
+
+      if (latestCommit !== storedCommit) {
+        localStorage.setItem('latestCommit', latestCommit)
+        localStorage.setItem('newCommit', 'yes')
+        toast({
+          title: "New updates!",
+          description: "Check out the lastest updates in announcements!",
+        })
+      } else {
+        localStorage.setItem('newCommit', 'no')
+      }
+      setProcessedCommits(true)
+    }
+  }, [gitCommits, processedCommits, toast])
+
+  var oldCD: any;
+
   return (
+
     <header className="bg-background sticky top-0 z-40 w-full border-b">
+
       <div className="container flex h-16 items-center space-x-4 sm:justify-between sm:space-x-0">
-        <MainNav items={siteConfig.mainNav} gitData={gitCommits}/>
+        <MainNav items={siteConfig.mainNav} gitData={gitCommits} />
         <div className="flex flex-1 items-center justify-end space-x-4">
           <nav className="flex items-center space-x-1">
             <AlertDialog>
               <AlertDialogTrigger asChild>
-                <Button variant={"ghost"} size={"sm"}>
-                  <Icons.announce className="h-5 w-5" />
+                <Button variant={"ghost"} size={"sm"} onClick={() => {
+                  localStorage.setItem("newCommit", "no")
+                }}>
+                  <Icons.announceDot className="h-5 w-5" />
                   <span className="sr-only">Changelog</span>
                 </Button>
               </AlertDialogTrigger>
@@ -47,27 +78,27 @@ export function SiteHeader() {
                 <AlertDialogHeader>
                   <AlertDialogTitle>Changelog</AlertDialogTitle>
                   <AlertDialogDescription className="max-h-[88vh] overflow-auto text-left capitalize">
-                    {gitCommits?.map(({commit}:any) => {
+                    {gitCommits?.map(({ commit }: any) => {
                       const c = commit;
-                      
-                      if(new Date(c.committer.date).toDateString() !== oldCD) {
+
+                      if (new Date(c.committer.date).toDateString() !== oldCD) {
                         oldCD = new Date(c.committer.date).toDateString();
-                        return(  
+                        return (
                           <>
                             <span className="text-md block font-bold">{new Date(c.committer.date).toDateString()}</span>
                             <span>- {c?.message}</span>
-                          </>  
+                          </>
                         )
-                      }else {
+                      } else {
                         oldCD = new Date(c.committer.date).toDateString();
-                        return(    
+                        return (
                           <span className="block">- {c?.message}</span>
                         )
                       }
-                      
+
                     })
                     }
-                    
+
                   </AlertDialogDescription>
                 </AlertDialogHeader>
                 <AlertDialogFooter>
@@ -75,7 +106,7 @@ export function SiteHeader() {
                 </AlertDialogFooter>
               </AlertDialogContent>
             </AlertDialog>
-            
+
             <Link
               href={siteConfig.profile.links.github.url}
               target="_blank"
@@ -91,6 +122,7 @@ export function SiteHeader() {
                 <span className="sr-only">GitHub</span>
               </div>
             </Link>
+            <Toaster />
             <ThemeToggle />
           </nav>
         </div>
