@@ -27,6 +27,11 @@ export const siteConfig = {
           title: "RevX",
           href: "/playground/revx",
           description: "Data binary visualization"
+        },
+        {
+          title: "C-Gen",
+          href: "/playground/cgen",
+          description: "Simple component generator for shadcnUI"
         }
       ]
     }
