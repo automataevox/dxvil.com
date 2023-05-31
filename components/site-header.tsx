@@ -20,6 +20,7 @@ import {
 import React from "react"
 import { useToast } from "./ui/use-toast"
 import { Toaster } from "./ui/toaster"
+import { ScrollArea } from "./ui/scroll-area"
 
 
 
@@ -71,34 +72,33 @@ export function SiteHeader() {
                   localStorage.setItem("newCommit", "no")
                 }}>
                   <Icons.announceDot className="h-5 w-5" />
-                  <span className="sr-only">Changelog</span>
+                  <span className="sr-only">Announcements</span>
                 </Button>
               </AlertDialogTrigger>
               <AlertDialogContent>
                 <AlertDialogHeader>
-                  <AlertDialogTitle>Changelog</AlertDialogTitle>
-                  <AlertDialogDescription className="max-h-[88vh] overflow-auto text-left capitalize">
-                    {gitCommits?.map(({ commit }: any) => {
-                      const c = commit;
+                  <AlertDialogTitle>Announcements</AlertDialogTitle>
+                  <AlertDialogDescription className="text-left capitalize">
+                      {gitCommits?.map(({ commit }: any) => {
+                        const c = commit;
 
-                      if (new Date(c.committer.date).toDateString() !== oldCD) {
-                        oldCD = new Date(c.committer.date).toDateString();
-                        return (
-                          <>
-                            <span className="text-md block font-bold">{new Date(c.committer.date).toDateString()}</span>
-                            <span>- {c?.message}</span>
-                          </>
-                        )
-                      } else {
-                        oldCD = new Date(c.committer.date).toDateString();
-                        return (
-                          <span className="block">- {c?.message}</span>
-                        )
+                        if (new Date(c.committer.date).toDateString() !== oldCD) {
+                          oldCD = new Date(c.committer.date).toDateString();
+                          return (
+                            <>
+                              <span className="text-md block font-bold">{new Date(c.committer.date).toDateString()}</span>
+                              <span>- {c?.message}</span>
+                            </>
+                          )
+                        } else {
+                          oldCD = new Date(c.committer.date).toDateString();
+                          return (
+                            <span className="block">- {c?.message}</span>
+                          )
+                        }
+
+                      })
                       }
-
-                    })
-                    }
-
                   </AlertDialogDescription>
                 </AlertDialogHeader>
                 <AlertDialogFooter>
