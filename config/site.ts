@@ -22,11 +22,13 @@ export const siteConfig = {
     },
     {
       title: "Playground",
-      paging: {
-        title: "RevX",
-        href: "/playground/revx",
-        description: "Data binary visualization",
-      }
+      paging: [
+        {
+          title: "RevX",
+          href: "/playground/revx",
+          description: "Data binary visualization"
+        }
+      ]
     }
   ],
  

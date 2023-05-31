@@ -1,11 +1,11 @@
 export interface NavItem {
-  title: string
-  href?: string
+  title: string;
+  href?: string;
   paging?: {
-    title: string
-    href: string
-    description?: string
-  } | null
-  disabled?: boolean
-  external?: boolean
+    title: string;
+    href: string;
+    description?: string;
+  }[] | null;
+  disabled?: boolean;
+  external?: boolean;
 }

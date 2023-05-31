@@ -69,17 +69,18 @@ export function MainNav({ items, gitData }: MainNavProps) {
             <NavigationMenuContent>
               <ul className="grid w-[15rem] gap-3 p-4 md:w-[15rem] md:grid-cols-1 lg:w-[20rem] ">
                 {items?.map((item) => {
-                  if(item.paging) {
-                    return(
+                  if (item.paging) {
+                    return item.paging.map((page) => (
                       <ListItem
-                        key={item.paging?.title}
-                        title={item.paging?.title}
-                        href={item.paging?.href}
+                        key={page?.title}
+                        title={page?.title}
+                        href={page?.href}
                       >
-                        {item.paging?.description}
+                        {page?.description}
                       </ListItem>
-                    )
+                    ));
                   }
+                  return null;
                 })}
               </ul>
             </NavigationMenuContent>
