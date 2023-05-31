@@ -21,6 +21,11 @@ export const siteConfig = {
       paging: null,
     },
     {
+      title: "Source",
+      href: "https://github.com/suishounohibiki/dxvil.com",
+      paging: null,
+    },
+    {
       title: "Playground",
       paging: [
         {

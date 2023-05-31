@@ -8,7 +8,6 @@ import { MainNav } from "@/components/main-nav"
 import { ThemeToggle } from "@/components/theme-toggle"
 import {
   AlertDialog,
-  AlertDialogAction,
   AlertDialogCancel,
   AlertDialogContent,
   AlertDialogDescription,
@@ -20,9 +19,6 @@ import {
 import React from "react"
 import { useToast } from "./ui/use-toast"
 import { Toaster } from "./ui/toaster"
-import { ScrollArea } from "./ui/scroll-area"
-
-
 
 export function SiteHeader() {
   const { toast } = useToast()

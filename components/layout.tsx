@@ -1,5 +1,4 @@
 import { SiteHeader } from "@/components/site-header"
-import { Toaster } from "./ui/toaster"
 
 interface LayoutProps {
   children: React.ReactNode
