@@ -41,7 +41,7 @@ export function MainNav({ items, gitData }: MainNavProps) {
               items?.map((item) => {
                 if(!item.paging) {
                   return(
-                    <NavigationMenuItem className={cn(
+                    <NavigationMenuItem key={item.href} className={cn(
                       "text-muted-foreground flex items-center text-sm font-semibold sm:text-sm",
                       item.disabled && "cursor-not-allowed opacity-80"
                     )}>

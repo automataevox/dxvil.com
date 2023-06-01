@@ -34,7 +34,7 @@ export function SiteHeader() {
 
   React.useEffect(() => {
     if (gitCommits && !processedCommits) {
-      console.log("run")
+
       const latestCommit = gitCommits[0].sha
       const storedCommit = localStorage.getItem('latestCommit')
 
@@ -53,7 +53,7 @@ export function SiteHeader() {
   }, [gitCommits, processedCommits, toast])
 
   var oldCD: any;
-
+  var x = 0;
   return (
 
     <header className="bg-background sticky top-0 z-40 w-full border-b">
@@ -77,19 +77,18 @@ export function SiteHeader() {
                   <AlertDialogDescription className="text-left capitalize">
                       {gitCommits?.map(({ commit }: any) => {
                         const c = commit;
-
                         if (new Date(c.committer.date).toDateString() !== oldCD) {
                           oldCD = new Date(c.committer.date).toDateString();
                           return (
                             <>
-                              <span className="text-md block font-bold">{new Date(c.committer.date).toDateString()}</span>
-                              <span>- {c?.message}</span>
+                              <span key={x++} className="text-md block font-bold">{new Date(c.committer.date).toDateString()}</span>
+                              <span key={x++}>- {c?.message}</span>
                             </>
                           )
                         } else {
                           oldCD = new Date(c.committer.date).toDateString();
                           return (
-                            <span className="block">- {c?.message}</span>
+                            <span key={x++} className="block">- {c?.message}</span>
                           )
                         }
 

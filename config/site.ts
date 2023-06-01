@@ -87,6 +87,7 @@ export const siteConfig = {
       }
     },
   },
+
   projects: [
     {
       img_src: "/assets/images/dark_dev.dxvil.com.png",
@@ -95,6 +96,7 @@ export const siteConfig = {
       url: "https://dev.dxvil.com/"
     },
   ],
+
   discord: {
     discord_status: [
       {
@@ -114,6 +116,76 @@ export const siteConfig = {
         value: "bg-red-500"
       }
     ]
+  },
+
+  cgen: {
+    components: [
+      {
+        name: "Accordion",
+        settings: {
+
+        }
+      }, 
+      {
+        name: "Alert",
+        settings: {
+
+        }
+      },
+      {
+        name: "Alert Dialog",
+        settings: {
+          input: {
+            variation: [
+              {
+                name: "url",
+                placeholder: "Url to image..."
+              },
+              {
+                name: "size",
+                placeholder: "Size of image"
+              }
+            ],
+          }
+        }
+      },
+      {
+        name: "Avatar",
+        settings: {
+          input: {
+            variation: [
+              {
+                name: "url",
+                placeholder: "Url to image..."
+              },
+              {
+                name: "size",
+                placeholder: "Size of image"
+              }
+            ],
+          }
+        }
+      },
+      {
+        name: "Badge",
+        settings: {
+          input: {
+            variation: [
+              {
+                name: "url",
+                placeholder: "Url to image..."
+              },
+              {
+                name: "size",
+                placeholder: "Size of image"
+              }
+            ],
+          }
+        }
+      }, 
+      
+    ] 
   }
 }
+
 
