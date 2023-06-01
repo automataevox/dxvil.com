@@ -45,14 +45,14 @@ export default function CGen() {
                         </CardHeader>
                         <CardContent>
                             {currentComponent?.settings ? Object.entries(currentComponent?.settings).map((setting):any => {
-                                setting[1]?.variation.map((value:any) =>{
+                                /*setting[1]?.variation.map((value:any) =>{
                                     //console.log(value)
                                     return(
                                         <Input id={value.name} key={value.name} type="text" placeholder={value.placeholder}>
                                             
                                         </Input>
                                     )
-                                })
+                                })*/
                             })
                             : <p>No input...</p>}
                         </CardContent>
