@@ -91,8 +91,8 @@ export const siteConfig = {
   projects: [
     {
       img_src: "/assets/images/dark_dev.dxvil.com.png",
-      img_alt: "Cyberpunk",
-      name: "dxvil",
+      img_alt: "dev.dxvil.com",
+      name: "dev.dxvil.com",
       url: "https://dev.dxvil.com/"
     },
   ],
@@ -122,68 +122,90 @@ export const siteConfig = {
     components: [
       {
         name: "Accordion",
-        settings: {
-
-        }
+        settings: [
+          {
+            name: "title",
+            placeholder: "Title of the accordion",
+          },
+          {
+            name: "content",
+            placeholder: "Content of the accordion",
+          }
+        ]
       }, 
       {
         name: "Alert",
-        settings: {
-
-        }
+        settings: [
+          {
+            name: "title",
+            placeholder: "Title of the alert"
+          },
+          {
+            name: "description",
+            placeholder: "Description of the alert"
+          },
+          {
+            name: "variation",
+            variations: [
+              "default", "destructive"
+            ]
+          }
+        ]
       },
       {
         name: "Alert Dialog",
-        settings: {
-          input: {
-            variation: [
-              {
-                name: "url",
-                placeholder: "Url to image..."
-              },
-              {
-                name: "size",
-                placeholder: "Size of image"
-              }
-            ],
+        settings: [
+          {
+            name: "buttonText",
+            placeholder: "Button text"
+          },
+          {
+            name: "title",
+            placeholder: "Diallog title"
+          },
+          {
+            name: "dialogDescription",
+            placeholder: "Description of the dialog"
+          },
+          {
+            name: "dialogAction",
+            placeholder: "Action button text"
           }
-        }
+        ]
       },
       {
         name: "Avatar",
-        settings: {
-          input: {
-            variation: [
-              {
-                name: "url",
-                placeholder: "Url to image..."
-              },
-              {
-                name: "size",
-                placeholder: "Size of image"
-              }
-            ],
+        settings: [
+          {
+            name: "url",
+            placeholder: "Url to image..."
+          },
+          {
+            name: "size",
+            placeholder: "Size of image"
+          },
+          {
+            name: "fallback",
+            placeholder: "Fallback text"
           }
-        }
+        ]
       },
       {
         name: "Badge",
-        settings: {
-          input: {
-            variation: [
-              {
-                name: "url",
-                placeholder: "Url to image..."
-              },
-              {
-                name: "size",
-                placeholder: "Size of image"
-              }
-            ],
+        settings: [
+          {
+            name: "title",
+            placeholder: "Title of badge"
+          },
+          {
+            name: "variation",
+            variations: [
+              "default", "secondary", "outline", "destructive"
+            ]
           }
-        }
-      }, 
-      
+
+        ]
+      },       
     ] 
   }
 }
