@@ -16,30 +16,25 @@ export const siteConfig = {
       paging: null,
     },
     {
-      title: "Projects",
-      href: "/projects",
-      paging: null,
+      title: "Playground",
+          paging: [
+            {
+              title: "RevX (WIP)",
+              href: "/playground/revx",
+              description: "Data binary visualization"
+            },
+            {
+              title: "C-Gen (WIP)",
+              href: "/playground/cgen",
+              description: "Simple component generator for shadcn/ui"
+            }
+          ]
     },
     {
       title: "Source",
       href: "https://github.com/suishounohibiki/dxvil.com",
       paging: null,
     },
-    {
-      title: "Playground",
-      paging: [
-        {
-          title: "RevX (WIP)",
-          href: "/playground/revx",
-          description: "Data binary visualization"
-        },
-        {
-          title: "C-Gen (WIP)",
-          href: "/playground/cgen",
-          description: "Simple component generator for shadcn/ui"
-        }
-      ]
-    }
   ],
  
   profile: {
