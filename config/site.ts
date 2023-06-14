@@ -206,6 +206,26 @@ export const siteConfig = {
 
         ]
       },       
+      {
+        name: "Button",
+        settings: [
+          {
+            name: "title",
+            placeholder: "Title of button"
+          },
+          {
+            name: "url",
+            placeholder: "Where link?"
+          },
+          {
+            name: "variation",
+            variations: [
+              "primary", "secondary", "outline", "destructive", "ghost", "link", "loading", "As Child"
+            ]
+          }
+
+        ]
+      },       
     ] 
   }
 }

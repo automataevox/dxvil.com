@@ -26,6 +26,7 @@ export default function CGen() {
           return newSettings;
         });
       }
+      console.log(componentSettings);
     return (
         <section className="container flex flex-col gap-6 pb-8 pt-6 md:py-10">
             <Card className="flex p-2">
