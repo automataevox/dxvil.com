@@ -10,9 +10,9 @@ interface ProfileInfoProps {
 export default function ProfileInfo({discordData}:ProfileInfoProps){
 
     const ACTIVE_DEVICES = [
-        {name: "Desktop", value: discordData?.data?.active_on_discord_desktop},
-        {name: "Mobile", value: discordData?.data?.active_on_discord_mobile},
-        {name: "Web", value: discordData?.data?.active_on_discord_web}
+        {name: "Desktop", value: discordData?.active_on_discord_desktop},
+        {name: "Mobile", value: discordData?.active_on_discord_mobile},
+        {name: "Web", value: discordData?.active_on_discord_web}
     ]
 
     const DEVICE_ACTIVE_COLORS = [
@@ -29,10 +29,10 @@ export default function ProfileInfo({discordData}:ProfileInfoProps){
                 <TooltipProvider>
                     <Tooltip >
                         <TooltipTrigger asChild>
-                            <div className={`mt-1 h-2 w-2 rounded-full ${DEVICE_ACTIVE_COLORS?.find(status => status.name === discordData?.data.discord_status)?.value}`} />
+                            <div className={`mt-1 h-2 w-2 rounded-full ${DEVICE_ACTIVE_COLORS?.find(status => status.name === discordData?.discord_status)?.value}`} />
                         </TooltipTrigger> 
                         <TooltipContent>
-                            <p className="capitalize">{discordData?.data?.discord_status} ({ACTIVE_DEVICES.filter(device => device.value === true).map(dev => dev.name).join(", ")})</p>
+                            <p className="capitalize">{discordData?.discord_status} ({ACTIVE_DEVICES.filter(device => device.value === true).map(dev => dev.name).join(", ")})</p>
                         </TooltipContent>
                     </Tooltip>
                 </TooltipProvider>

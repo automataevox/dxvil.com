@@ -6,12 +6,13 @@ import {
   CardHeader,
 } from "@/components/ui/card"
 
-import ActivityTile, { fetchData } from '../../components/activityTile';
+import ActivityTile from '../../components/activityTile';
 import { useEffect, useState } from 'react';
 import SocialsGrid from "@/components/socialsGrid";
 import EmailComponent from "@/components/emailComponent";
 import ProfileAvatar from "@/components/profileAvatar";
 import ProfileInfo from "@/components/profileInfo";
+import DiscordConnect from "../discord";
 
 interface DiscordData {
     data: {
@@ -28,14 +29,13 @@ interface DiscordData {
 export default function ProfilePage() {
     const [isLoading, setIsLoading] = useState(true)
     const [discordData, setDiscordData] = useState<DiscordData | null>(null);
+    const [WSReq, setWSReq] = useState(true);
 
-    useEffect(() => {
-        const interval = setInterval(() => {
-            fetchData({setDiscordData, setIsLoading, discordData, isLoading});
-        }, 2000);
-        return () => clearInterval(interval);
-    });    
-
+    if(WSReq){
+        setWSReq(false)
+        DiscordConnect(setIsLoading, setDiscordData)
+    }
+    //console.log(discordData)
     return (
         <section className="container grid items-center gap-6 pb-8 pt-6 md:py-10">
             <Card>

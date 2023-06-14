@@ -16,7 +16,7 @@ export default function ProfileAvatar({isLoading, discordData}:ProfileAvatarProp
                     <Tooltip >
                         <TooltipTrigger asChild>
                         <Avatar className="h-24 w-24">
-                            <AvatarImage src={`https://cdn.discordapp.com/avatars/${siteConfig.profile?.discordUserId}/${discordData?.data?.discord_user?.avatar}`} alt="discord_avatar" />
+                            <AvatarImage src={`https://cdn.discordapp.com/avatars/${siteConfig.profile?.discordUserId}/${discordData?.discord_user?.avatar}`} alt="discord_avatar" />
                         </Avatar>
                         </TooltipTrigger> 
                         <TooltipContent>

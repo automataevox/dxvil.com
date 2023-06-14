@@ -1,7 +1,7 @@
+import DiscordConnect from "@/app/discord";
 import { Card, CardContent } from "@/components/ui/card"
-import { Skeleton } from "@/components/ui/skeleton";
-import { siteConfig } from "@/config/site";
-import Image from "next/image";
+import { Skeleton } from "@/components/ui/skeleton";import Image from "next/image";
+
 
 interface ActivityTileProps {
   isLoading: boolean;
@@ -10,15 +10,9 @@ interface ActivityTileProps {
   setIsLoading?: any;
 }
 
-export function fetchData({setIsLoading, setDiscordData}: ActivityTileProps){
-  fetch(`https://api.lanyard.rest/v1/users/${siteConfig.profile.discordUserId}`).then(async res => {
-    await setDiscordData(await res.json())
-    res ? setIsLoading(false) : setIsLoading(true)
-
-  })
-}
-
 export default function ActivityTile({isLoading, discordData}: ActivityTileProps) {
+
+
   return (
     <>
     
@@ -35,8 +29,8 @@ export default function ActivityTile({isLoading, discordData}: ActivityTileProps
                   </div>
               </div>
               :
-              discordData.data?.activities.length !== 0 ?
-              discordData.data?.activities.map((activity: {
+              discordData?.activities?.length !== 0 ?
+              discordData?.activities?.map((activity: {
                 state: string | undefined;
                 session_id: string | number;
                 application_id: string | number;
